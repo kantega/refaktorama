@@ -8,7 +8,7 @@
         public const String GT = "gt";
         public const String BACARDI_SPECIAL = "bacardi_special";
 
-        public int computeCost(String drink, bool student, int amount)
+        public int ComputeCost(String drink, bool student, int amount)
         {
 
             if (amount > 2 && (drink == GT || drink == BACARDI_SPECIAL))
@@ -27,11 +27,11 @@
             else if (drink == A_PROPER_CIDER) price = 110;
             else if (drink == GT)
             {
-                price = ingredient6() + ingredient5() + ingredient4();
+                price = ingredient6 + ingredient5 + ingredient4;
             }
             else if (drink == BACARDI_SPECIAL)
             {
-                price = ingredient6() / 2 + ingredient1() + ingredient2() + ingredient3();
+                price = ingredient6 / 2 + ingredient1 + ingredient2 + ingredient3;
             }
             else
             {
@@ -45,39 +45,39 @@
         }
 
         //one unit of rum
-        private int ingredient1()
+        private int ingredient1
         {
-            return 65;
+            get { return 65; }
         }
 
         //one unit of grenadine
-        private int ingredient2()
+        private int ingredient2
         {
-            return 10;
+            get { return 10; }
         }
 
         //one unit of lime juice
-        private int ingredient3()
+        private int ingredient3
         {
-            return 10;
+            get { return 10; }
         }
 
         //one unit of green stuff
-        private int ingredient4()
+        private int ingredient4
         {
-            return 10;
+            get { return 10; }
         }
 
         //one unit of tonic water
-        private int ingredient5()
+        private int ingredient5
         {
-            return 20;
+            get { return 20; }
         }
 
         //one unit of gin
-        private int ingredient6()
+        private int ingredient6
         {
-            return 85;
+            get { return 85; }
         }
     }
 }

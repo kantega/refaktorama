@@ -20,7 +20,7 @@ namespace no.kantega
         [Test]
         public void oneBeerTest()
         {
-            int actualPrice = pub.computeCost(Pub.ONE_BEER, false, 1);
+            int actualPrice = pub.ComputeCost(Pub.ONE_BEER, false, 1);
             Assert.AreEqual(74, actualPrice);
         }
 
@@ -28,7 +28,7 @@ namespace no.kantega
         [Description("When we order one cider, then the price is 103 kr.")]
         public void testCidersAreCostly()
         {
-            int actualPrice = pub.computeCost(Pub.ONE_CIDER, false, 1);
+            int actualPrice = pub.ComputeCost(Pub.ONE_CIDER, false, 1);
             Assert.AreEqual(103, actualPrice);
         }
 
@@ -36,7 +36,7 @@ namespace no.kantega
         [Description("When we order a proper cider, then the price is 110 kr.")]
         public void testProperCidersAreEvenMoreExpensive()
         {
-            int actualPrice = pub.computeCost(Pub.A_PROPER_CIDER, false, 1);
+            int actualPrice = pub.ComputeCost(Pub.A_PROPER_CIDER, false, 1);
             Assert.AreEqual(110, actualPrice);
         }
 
@@ -45,7 +45,7 @@ namespace no.kantega
 
         public void testACocktail()
         {
-            int actualPrice = pub.computeCost(Pub.GT, false, 1);
+            int actualPrice = pub.ComputeCost(Pub.GT, false, 1);
             Assert.AreEqual(115, actualPrice);
         }
 
@@ -54,7 +54,7 @@ namespace no.kantega
 
         public void testBacardiSpecial()
         {
-            int actualPrice = pub.computeCost(Pub.BACARDI_SPECIAL, false, 1);
+            int actualPrice = pub.ComputeCost(Pub.BACARDI_SPECIAL, false, 1);
             Assert.AreEqual(127, actualPrice);
         }
 
@@ -76,7 +76,7 @@ namespace no.kantega
 
             public void testStudentsGetADiscountForBeer()
             {
-                int actualPrice = pub.computeCost(Pub.ONE_BEER, true, 1);
+                int actualPrice = pub.ComputeCost(Pub.ONE_BEER, true, 1);
                 Assert.AreEqual(67, actualPrice);
             }
 
@@ -85,7 +85,7 @@ namespace no.kantega
 
             public void testStudentsGetDiscountsWhenOrderingMoreThanOneBeer()
             {
-                int actualPrice = pub.computeCost(Pub.ONE_BEER, true, 2);
+                int actualPrice = pub.ComputeCost(Pub.ONE_BEER, true, 2);
                 Assert.AreEqual(67 * 2, actualPrice);
             }
 
@@ -94,7 +94,7 @@ namespace no.kantega
 
             public void testStudentsDoNotGetDiscountsForCocktails()
             {
-                int actualPrice = pub.computeCost(Pub.GT, true, 1);
+                int actualPrice = pub.ComputeCost(Pub.GT, true, 1);
                 Assert.AreEqual(115, actualPrice);
             }
         }
@@ -103,7 +103,7 @@ namespace no.kantega
         [Description("When they order a drink which is not on the menu, then they are refused.")]
         public void testThatADrinkNotInTheSortimentGivesError()
         {
-            Assert.Throws<Exception>(() => pub.computeCost("sanfranciscosling", false, 1));
+            Assert.Throws<Exception>(() => pub.ComputeCost("sanfranciscosling", false, 1));
         }
 
         [TestFixture]
@@ -123,7 +123,7 @@ namespace no.kantega
 
             public void testCanBuyAtMostTwoDrinksInOneGo()
             {
-                Assert.Throws<Exception>(() => pub.computeCost(Pub.BACARDI_SPECIAL, false, 3));
+                Assert.Throws<Exception>(() => pub.ComputeCost(Pub.BACARDI_SPECIAL, false, 3));
             }
 
             [Test]
@@ -131,7 +131,7 @@ namespace no.kantega
 
             public void testCanOrderMoreThanTwoBeers()
             {
-                pub.computeCost(Pub.ONE_BEER, false, 5);
+                pub.ComputeCost(Pub.ONE_BEER, false, 5);
             }
         }
     }
