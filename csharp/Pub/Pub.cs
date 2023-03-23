@@ -38,7 +38,6 @@
                 throw new Exception("No such drink exists");
             }
             if (student && (drink == OneCider || drink == OneBeer || drink == AProperCider))
-            if (student && (drink == OneCider || drink is OneBeer or AProperCider))
             {
                 price = price - price / 10;
             }
