@@ -2,34 +2,34 @@
 {
     public class Pub
     {
-        public const String ONE_BEER = "hansa";
-        public const String ONE_CIDER = "grans";
-        public const String A_PROPER_CIDER = "strongbow";
-        public const String GT = "gt";
-        public const String BACARDI_SPECIAL = "bacardi_special";
+        public const string OneBeer = "hansa";
+        public const string OneCider = "grans";
+        public const string AProperCider = "strongbow";
+        public const string GT = "gt";
+        public const string BacardiSpecial = "bacardi_special";
 
-        public int ComputeCost(String drink, bool student, int amount)
+        public int ComputeCost(string drink, bool student, int amount)
         {
 
-            if (amount > 2 && (drink == GT || drink == BACARDI_SPECIAL))
+            if (amount > 2 && (drink == GT || drink == BacardiSpecial))
             {
                 throw new Exception("Too many drinks, max 2.");
             }
             int price;
-            if (drink == ONE_BEER)
+            if (drink == OneBeer)
             {
                 price = 74;
             }
-            else if (drink == ONE_CIDER)
+            else if (drink == OneCider)
             {
                 price = 103;
             }
-            else if (drink == A_PROPER_CIDER) price = 110;
+            else if (drink == AProperCider) price = 110;
             else if (drink == GT)
             {
                 price = ingredient6 + ingredient5 + ingredient4;
             }
-            else if (drink == BACARDI_SPECIAL)
+            else if (drink == BacardiSpecial)
             {
                 price = ingredient6 / 2 + ingredient1 + ingredient2 + ingredient3;
             }
@@ -37,7 +37,7 @@
             {
                 throw new Exception("No such drink exists");
             }
-            if (student && (drink == ONE_CIDER || drink == ONE_BEER || drink == A_PROPER_CIDER))
+            if (student && (drink == OneCider || drink == OneBeer || drink == AProperCider))
             {
                 price = price - price / 10;
             }
