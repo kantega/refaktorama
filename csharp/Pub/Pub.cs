@@ -1,43 +1,43 @@
-﻿namespace no.kantega
+﻿namespace Pub
 {
     public class Pub
     {
-        public const String ONE_BEER = "hansa";
-        public const String ONE_CIDER = "grans";
-        public const String A_PROPER_CIDER = "strongbow";
-        public const String GT = "gt";
-        public const String BACARDI_SPECIAL = "bacardi_special";
+        public const string OneBeer = "hansa";
+        public const string OneCider = "grans";
+        public const string AProperCider = "strongbow";
+        public const string Gt = "gt";
+        public const string BacardiSpecial = "bacardi_special";
 
-        public int ComputeCost(String drink, bool student, int amount)
+        public int ComputeCost(string drink, bool student, int amount)
         {
 
-            if (amount > 2 && (drink == GT || drink == BACARDI_SPECIAL))
+            if (amount > 2 && (drink == Gt || drink == BacardiSpecial))
             {
                 throw new Exception("Too many drinks, max 2.");
             }
             int price;
-            if (drink == ONE_BEER)
+            if (drink == OneBeer)
             {
                 price = 74;
             }
-            else if (drink == ONE_CIDER)
+            else if (drink == OneCider)
             {
                 price = 103;
             }
-            else if (drink == A_PROPER_CIDER) price = 110;
-            else if (drink == GT)
+            else if (drink == AProperCider) price = 110;
+            else if (drink == Gt)
             {
-                price = ingredient6 + ingredient5 + ingredient4;
+                price = Ingredient6 + Ingredient5 + Ingredient4;
             }
-            else if (drink == BACARDI_SPECIAL)
+            else if (drink == BacardiSpecial)
             {
-                price = ingredient6 / 2 + ingredient1 + ingredient2 + ingredient3;
+                price = Ingredient6 / 2 + Ingredient1 + Ingredient2 + Ingredient3;
             }
             else
             {
                 throw new Exception("No such drink exists");
             }
-            if (student && (drink == ONE_CIDER || drink == ONE_BEER || drink == A_PROPER_CIDER))
+            if (student && (drink == OneCider || drink is OneBeer or AProperCider))
             {
                 price = price - price / 10;
             }
@@ -45,39 +45,21 @@
         }
 
         //one unit of rum
-        private int ingredient1
-        {
-            get { return 65; }
-        }
+        private int Ingredient1 { get; } = 65;
 
         //one unit of grenadine
-        private int ingredient2
-        {
-            get { return 10; }
-        }
+        private int Ingredient2 { get; } = 10;
 
         //one unit of lime juice
-        private int ingredient3
-        {
-            get { return 10; }
-        }
+        private int Ingredient3 { get; } = 10;
 
         //one unit of green stuff
-        private int ingredient4
-        {
-            get { return 10; }
-        }
+        private int Ingredient4 { get; } = 10;
 
         //one unit of tonic water
-        private int ingredient5
-        {
-            get { return 20; }
-        }
+        private int Ingredient5 { get; } = 20;
 
         //one unit of gin
-        private int ingredient6
-        {
-            get { return 85; }
-        }
+        private int Ingredient6 { get; } = 85;
     }
 }

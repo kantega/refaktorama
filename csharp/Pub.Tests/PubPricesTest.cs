@@ -1,6 +1,6 @@
 using NUnit.Framework;
 
-namespace no.kantega
+namespace Pub.Tests
 {
 
     [Description("Pub spec")]
@@ -18,44 +18,44 @@ namespace no.kantega
 
         [Description("When we order one beer, then the price is 74 kr.")]
         [Test]
-        public void oneBeerTest()
+        public void OneBeerTest()
         {
-            int actualPrice = pub.ComputeCost(Pub.ONE_BEER, false, 1);
-            Assert.AreEqual(74, actualPrice);
+            var actualPrice = pub.ComputeCost(Pub.OneBeer, false, 1);
+            Assert.That(actualPrice, Is.EqualTo(74));
         }
 
         [Test]
         [Description("When we order one cider, then the price is 103 kr.")]
-        public void testCidersAreCostly()
+        public void TestCidersAreCostly()
         {
-            int actualPrice = pub.ComputeCost(Pub.ONE_CIDER, false, 1);
-            Assert.AreEqual(103, actualPrice);
+            var actualPrice = pub.ComputeCost(Pub.OneCider, false, 1);
+            Assert.That(actualPrice, Is.EqualTo(103));
         }
 
         [Test]
         [Description("When we order a proper cider, then the price is 110 kr.")]
-        public void testProperCidersAreEvenMoreExpensive()
+        public void TestProperCidersAreEvenMoreExpensive()
         {
-            int actualPrice = pub.ComputeCost(Pub.A_PROPER_CIDER, false, 1);
-            Assert.AreEqual(110, actualPrice);
+            var actualPrice = pub.ComputeCost(Pub.AProperCider, false, 1);
+            Assert.That(actualPrice, Is.EqualTo(110));
         }
 
         [Test]
         [Description("When we order a gin and tonic, then the price is 115 kr.")]
 
-        public void testACocktail()
+        public void TestACocktail()
         {
-            int actualPrice = pub.ComputeCost(Pub.GT, false, 1);
-            Assert.AreEqual(115, actualPrice);
+            var actualPrice = pub.ComputeCost(Pub.Gt, false, 1);
+            Assert.That(actualPrice, Is.EqualTo(115));
         }
 
         [Test]
         [Description("When we order a bacardi special, then the price is 127 kr.")]
 
-        public void testBacardiSpecial()
+        public void TestBacardiSpecial()
         {
-            int actualPrice = pub.ComputeCost(Pub.BACARDI_SPECIAL, false, 1);
-            Assert.AreEqual(127, actualPrice);
+            var actualPrice = pub.ComputeCost(Pub.BacardiSpecial, false, 1);
+            Assert.That(actualPrice, Is.EqualTo(127));
         }
 
         [TestFixture]
@@ -74,34 +74,34 @@ namespace no.kantega
             [Test]
             [Description("When they order a beer, then they get a discount.")]
 
-            public void testStudentsGetADiscountForBeer()
+            public void TestStudentsGetADiscountForBeer()
             {
-                int actualPrice = pub.ComputeCost(Pub.ONE_BEER, true, 1);
-                Assert.AreEqual(67, actualPrice);
+                var actualPrice = pub.ComputeCost(Pub.OneBeer, true, 1);
+                Assert.That(actualPrice, Is.EqualTo(67));
             }
 
             [Test]
             [Description("When they order multiple beers, they also get a discount.")]
 
-            public void testStudentsGetDiscountsWhenOrderingMoreThanOneBeer()
+            public void TestStudentsGetDiscountsWhenOrderingMoreThanOneBeer()
             {
-                int actualPrice = pub.ComputeCost(Pub.ONE_BEER, true, 2);
-                Assert.AreEqual(67 * 2, actualPrice);
+                var actualPrice = pub.ComputeCost(Pub.OneBeer, true, 2);
+                Assert.That(actualPrice, Is.EqualTo(67 * 2));
             }
 
             [Test]
             [Description("When they order a cocktail, they do not get a discount.")]
 
-            public void testStudentsDoNotGetDiscountsForCocktails()
+            public void TestStudentsDoNotGetDiscountsForCocktails()
             {
-                int actualPrice = pub.ComputeCost(Pub.GT, true, 1);
-                Assert.AreEqual(115, actualPrice);
+                int actualPrice = pub.ComputeCost(Pub.Gt, true, 1);
+                Assert.That(actualPrice, Is.EqualTo(115));
             }
         }
 
         [Test]
         [Description("When they order a drink which is not on the menu, then they are refused.")]
-        public void testThatADrinkNotInTheSortimentGivesError()
+        public void TestThatADrinkNotInTheSortimentGivesError()
         {
             Assert.Throws<Exception>(() => pub.ComputeCost("sanfranciscosling", false, 1));
         }
@@ -121,17 +121,17 @@ namespace no.kantega
             [Test]
             [Description("and the order is for cocktails, then they are refused.")]
 
-            public void testCanBuyAtMostTwoDrinksInOneGo()
+            public void TestCanBuyAtMostTwoDrinksInOneGo()
             {
-                Assert.Throws<Exception>(() => pub.ComputeCost(Pub.BACARDI_SPECIAL, false, 3));
+                Assert.Throws<Exception>(() => pub.ComputeCost(Pub.BacardiSpecial, false, 3));
             }
 
             [Test]
             [Description("and the order is for beers, then they are served.")]
 
-            public void testCanOrderMoreThanTwoBeers()
+            public void TestCanOrderMoreThanTwoBeers()
             {
-                pub.ComputeCost(Pub.ONE_BEER, false, 5);
+                pub.ComputeCost(Pub.OneBeer, false, 5);
             }
         }
     }
