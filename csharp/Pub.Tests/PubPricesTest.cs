@@ -1,6 +1,6 @@
 using NUnit.Framework;
 
-namespace no.kantega
+namespace Pub.Tests
 {
 
     [Description("Pub spec")]
@@ -20,24 +20,24 @@ namespace no.kantega
         [Test]
         public void OneBeer()
         {
-            int actualPrice = pub.ComputeCost(Pub.OneBeer, false, 1);
-            Assert.AreEqual(74, actualPrice);
+            var actualPrice = pub.ComputeCost(Pub.OneBeer, false, 1);
+            Assert.That(actualPrice, Is.EqualTo(74));
         }
 
         [Test]
         [Description("When we order one cider, then the price is 103 kr.")]
         public void CidersAreCostly()
         {
-            int actualPrice = pub.ComputeCost(Pub.OneCider, false, 1);
-            Assert.AreEqual(103, actualPrice);
+            var actualPrice = pub.ComputeCost(Pub.OneCider, false, 1);
+            Assert.That(actualPrice, Is.EqualTo(103));
         }
 
         [Test]
         [Description("When we order a proper cider, then the price is 110 kr.")]
         public void ProperCidersAreEvenMoreExpensive()
         {
-            int actualPrice = pub.ComputeCost(Pub.AProperCider, false, 1);
-            Assert.AreEqual(110, actualPrice);
+            var actualPrice = pub.ComputeCost(Pub.AProperCider, false, 1);
+            Assert.That(actualPrice, Is.EqualTo(110));
         }
 
         [Test]
@@ -45,8 +45,8 @@ namespace no.kantega
 
         public void ACocktail()
         {
-            int actualPrice = pub.ComputeCost(Pub.GT, false, 1);
-            Assert.AreEqual(115, actualPrice);
+            var actualPrice = pub.ComputeCost(Pub.Gt, false, 1);
+            Assert.That(actualPrice, Is.EqualTo(115));
         }
 
         [Test]
@@ -54,8 +54,8 @@ namespace no.kantega
 
         public void BacardiSpecial()
         {
-            int actualPrice = pub.ComputeCost(Pub.BacardiSpecial, false, 1);
-            Assert.AreEqual(127, actualPrice);
+            var actualPrice = pub.ComputeCost(Pub.BacardiSpecial, false, 1);
+            Assert.That(actualPrice, Is.EqualTo(127));
         }
 
         [TestFixture]
@@ -76,8 +76,8 @@ namespace no.kantega
 
             public void StudentsGetADiscountForBeer()
             {
-                int actualPrice = pub.ComputeCost(Pub.OneBeer, true, 1);
-                Assert.AreEqual(67, actualPrice);
+                var actualPrice = pub.ComputeCost(Pub.OneBeer, true, 1);
+                Assert.That(actualPrice, Is.EqualTo(67));
             }
 
             [Test]
@@ -85,8 +85,8 @@ namespace no.kantega
 
             public void StudentsGetDiscountsWhenOrderingMoreThanOneBeer()
             {
-                int actualPrice = pub.ComputeCost(Pub.OneBeer, true, 2);
-                Assert.AreEqual(67 * 2, actualPrice);
+                var actualPrice = pub.ComputeCost(Pub.OneBeer, true, 2);
+                Assert.That(actualPrice, Is.EqualTo(67 * 2));
             }
 
             [Test]
@@ -94,8 +94,8 @@ namespace no.kantega
 
             public void StudentsDoNotGetDiscountsForCocktails()
             {
-                int actualPrice = pub.ComputeCost(Pub.GT, true, 1);
-                Assert.AreEqual(115, actualPrice);
+                int actualPrice = pub.ComputeCost(Pub.Gt, true, 1);
+                Assert.That(actualPrice, Is.EqualTo(115));
             }
         }
 
