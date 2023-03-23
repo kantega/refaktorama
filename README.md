@@ -35,7 +35,7 @@ Pick the one you (and your team) feel most comfortable with.
 ## Features
 <details>
 <summary>
-Possible features
+Upcoming features
 </summary>
 
 ### 1. Adjustable menu
@@ -71,7 +71,7 @@ Refactor so that receipts can be implemented.
 </details>
 
 
-## Restraints
+## Constraints
 <details>
 <summary>
 Possible restraints
@@ -80,11 +80,11 @@ Possible restraints
 ### 1. None
 Redesign as you wish, change or expand the API to suit your needs.  
 
-### 2. Partial
+### 2. Fixed API (partial)
 The signature (parameters and return type) of the method computeCost cannot change.
 It is in use by another system that will break if this is changed.
 
-### 3. Severe:
+### 3. Finish in 2 hours (severe)
 Finish completely in 2 hours, as the pub opens in 2 hours, and the system needs to be working! 
 
 </details>
