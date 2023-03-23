@@ -8,7 +8,7 @@ This is why it is important to maintain the code and clean up after yourself (an
 
 
 ## What you need
-- Java 11 (or newer) or .Net 7
+- Java 17 or .Net 7 (will work just fine with .Net 6 too)
 - Git
 - Intellij
 
