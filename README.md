@@ -8,9 +8,9 @@ This is why it is important to maintain the code and clean up after yourself (an
 
 
 ## What you need
-- Java 17 or .Net 7 (will work just fine with .Net 6 too)
+- Java 17, .Net 7 (will work just fine with .Net 6 too), or Python
 - Git
-- Intellij or Visual Studio Code
+- Intellij, PyCharm, or Visual Studio Code
 
 
 # The mission
@@ -28,7 +28,7 @@ We recommend working together in small groups of around 3 people. While there ar
 isn't to actually implement them, but to get the code ready to implement them. Even though some details are missing, 
 Tina has lined up some upcoming features and real life constraints. Each group gets one feature and one restraint. 
 
-There are two implementations, one in Java and one in C#. They both have the same test suite and perform the exact same task. 
+There are three implementations, in Java, in C#, and in Python. They have the same test suite and perform the exact same task. 
 Pick the one you (and your team) feel most comfortable with. 
 
 
